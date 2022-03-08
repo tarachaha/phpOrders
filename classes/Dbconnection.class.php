@@ -14,7 +14,7 @@ class Dbconnection {
             die("Connection failed: " . $connection->connect_error);
         }
         //for debbuging
-        echo "connected succesfully";
+        //echo "connected succesfully";
         return $connection;
     }
 }

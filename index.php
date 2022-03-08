@@ -15,11 +15,12 @@
 <!-- Navigation bar -->
     <div class="navigationpanel">
         <ul class="navbuttonslist">
-            <li class=""><a href="/rotainterview/">Home</a></li>
-            <li class=""><a href="/rotainterview/views/OrderEntry.php">Order Entry</a></li>
-            <li class=""><a href="/rotainterview/views/OrderItemEntry.php">Order Item Entry</a></li>
-            <li class=""><a href="/rotainterview/views/OrderList.php">Order List</a></li>
-            <li class=""><a href="/rotainterview/views/OrderItemList.php">Order Item List </a></li>
+            <li class="navli"><a href="/rotainterview/">Home</a></li>
+            <li class="navli"><a href="/rotainterview/views/OrderEntry.php">Order Entry</a></li>
+            <li class="navli"><a href="/rotainterview/views/OrderItemEntry.php">Order Item Entry</a></li>
+            <li class="navli"><a href="/rotainterview/views/OrderList.php">Order List</a></li>
+            <li class="navli"><a href="/rotainterview/views/OrderItemList.php">Order Item List </a></li>
+            <li class="navli"><a href="/rotainterview/views/OrderLookup.php">Order Lookup </a></li>
         </ul>
     </div> 
 <!-- Centered Page content -->

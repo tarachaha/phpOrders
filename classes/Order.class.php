@@ -2,6 +2,7 @@
 class Order extends Dbconnection {
     
     protected function getOrders() {
+        //Query db for all orders, no user input
         $sql = "SELECT * FROM Orders";
         $result = $this->connect()->query($sql);
         return $result;
@@ -15,7 +16,7 @@ class Order extends Dbconnection {
         $queryCustomer = $customer;
         $queryOrderInformation = $orderInformation;
         $stmt->execute();
-
+        return $stmt;
         $stmt->close();
         
     }
