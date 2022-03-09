@@ -1,3 +1,6 @@
+<?php
+    include '../includes/viewautoloader.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,28 +14,51 @@
 <body>
     <div class="navigationpanel">
         <ul class="navbuttonslist">
-            <li class=""><a href="/rotainterview/">Home</a></li>
-            <li class=""><a href="/rotainterview/views/OrderEntry.php">Order Entry</a></li>
-            <li class=""><a href="/rotainterview/views/OrderItemEntry.php">Order Item Entry</a></li>
-            <li class=""><a href="/rotainterview/views/OrderList.php">Order List</a></li>
-            <li class=""><a href="/rotainterview/views/OrderItemList.php">Order Item List </a></li>
-            <li class=""><a href="/rotainterview/views/OrderLookup.php">Order Lookup </a></li>
+            <li class="navli"><a href="/rotainterview/">Home</a></li>
+            <li class="navli"><a href="/rotainterview/views/OrderEntry.php">Order Entry</a></li>
+            <li class="navli"><a href="/rotainterview/views/OrderItemEntry.php">Order Item Entry</a></li>
+            <li class="navli"><a href="/rotainterview/views/OrderList.php">Order List</a></li>
+            <li class="navli"><a href="/rotainterview/views/OrderItemList.php">Order Item List </a></li>
+            <li class="navli"><a href="/rotainterview/views/OrderLookup.php">Order Lookup </a></li>
         </ul>
     </div>
 <div class="pagecontent">
     <h1>Order Item Entry:</h1>
     
+    <div class="customformdiv"> 
     
-</div>
-<div class="customformdiv"> 
-        <form action="classes/OrderItemContr.class.php" method="post">
-        <label for="stockCode">Stock Code: </label><input type="text" name="stockCode"><br>
-        Quantity: <input type="text" name="quantity"><br>
-        Price: <input type="text" name="price"><br>
-        Due Date: <input type="text" name="dueDate"><br>
-        Order Id: <input type="text" name="orderId"><br>
-        <input type="submit" text="Add Item">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+        
+        Stock Code:<input type="text" name="stockCode">
+     
+        Quantity: <input type="text" name="quantity">
+
+        Price: <input type="text" name="price">
+
+        Due Date: <input type="text" name="dueDate">
+  
+        Order Id: <input type="text" name="orderId">
+   
+        <input type="submit">
         </form>
+        
     </div>
+</div>
+<?php
+    $formcontroller = new OrderItemContr();
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $formcontroller->addDebug($_POST["stockCode"], $_POST["quantity"],$_POST["price"],$_POST["dueDate"],$_POST["orderId"]);
+    }
+    function console_log($data) {
+        $output = $data;
+        if (is_array($output))
+            $output = implode(',', $output);
+    
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    }
+
+    console_log("console works");
+?>
+
 </body>
 </html>
