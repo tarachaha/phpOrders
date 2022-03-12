@@ -8,16 +8,30 @@ class Order extends Dbconnection {
         return $result;
     }
 
-    protected function setOrder($customer, $orderInformation) {
-        // create a prepared statement and bind
-        $stmt = $this->connect()->prepare("INSERT INTO Orders (customer, orderInformation) VALUES (?, ?)");
-        $stmt->bind_param("ss", $queryCustomer, $queryOrderInformation);
-        //set parameters and execute
+    protected function setOrder($orderId, $customer, $orderInformation) {
+        console_log($orderId." ". $customer." ". $orderInformation);
+        $queryorderId = $orderId;
         $queryCustomer = $customer;
         $queryOrderInformation = $orderInformation;
-        $stmt->execute();
-        return $stmt;
-        $stmt->close();
-        
+        // create a prepared statement and bind
+        //$stmt = $this->connect()->prepare("INSERT INTO Orders (orderId, customer, orderInformation) VALUES (?, ?, ?)");
+        $result = $this->connect()->query("INSERT INTO Orders (orderId, customer, orderInformation) VALUES (".$orderId.", ".$customer.", ".$orderInformation.")");
+        console_log("first");
+        //set parameters and execute
+        // $queryorderId = $orderId;
+        // $queryCustomer = $customer;
+        // $queryOrderInformation = $orderInformation;
+        // $stmt->bind_param("iss", $queryorderId, $queryCustomer, $queryOrderInformation);
+        // console_log("sec");
+        // $stmt->execute();
+        console_log("third");
+    }
+
+    function console_log($data) {
+        $output = $data;
+        if (is_array($output))
+            $output = implode(',', $output);
+    
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
     }
 }

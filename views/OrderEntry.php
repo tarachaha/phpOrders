@@ -24,9 +24,27 @@
     </div>
 <div class="pagecontent">
     <h1>Order Entry:</h1>
-</div>
-    <form>
-        
+    <div class="customformdiv"> 
+    
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+    
+    Order Id:<input type="text" name="orderId">
+
+    Customer:<input type="text" name="cutomer">
+ 
+    Customer Information: <input type="text" name="customerInformation">
+
+    <input type="submit">
     </form>
+    
+    </div>
+</div>
+
+<?php
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $formcontr = new OrderContr();
+        $formcontr->addOrder();
+    }
+?>
 </body>
 </html>

@@ -31,7 +31,8 @@
 </div>
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $formcontroller->addDebug($_POST["stockCode"], $_POST["quantity"],$_POST["price"],$_POST["dueDate"],$_POST["orderId"]);
+        $formcontroller = new OrderItemView();
+        $formcontroller->showItemsForOrder();
     }
 ?>
 </body>

@@ -30,13 +30,6 @@
      Hello
  </h1>   
 
-<?php
-
-
-$orderItems = new OrderItemView();
-$orderItems->showAllOrderItemsTable();
-
-?>
 </div>
 
 </body>
